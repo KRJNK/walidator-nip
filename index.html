@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Walidator NIP — sprawdź firmę</title>
+<meta name="description" content="Sprawdź poprawność numeru NIP (suma kontrolna GUS). Przydatne przed wystawieniem faktury.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏢</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <!-- TODO: link do portfolio, gdy powstanie -->
+  <h1>Sprawdź NIP</h1>
+  <p>Czy numer ma poprawną sumę kontrolną?</p>
+  <section class="card">
+    <label>NIP <input id="nip" inputmode="numeric" maxlength="13" placeholder="np. 5260001246" style="width:12em"></label>
+  </section>
+  <section class="card">
+    <h2>Wynik</h2>
+    <div id="out" class="big">—</div>
+    <p id="detail" class="hint"></p>
+  </section>
+  <section class="card">
+    <h2>Jak to działa</h2>
+    <p>NIP to 10 cyfr: pierwsze 9 mnożymy przez wagi 6-5-7-2-3-4-5-6-7, sumujemy i dzielimy modulo 11. Wynik musi równać się 10. cyfrze (i nie może wyjść 10 — takie kombinacje się nie zdarzają). To walidacja GUS stosowana m.in. przed wystawieniem faktury.</p>
+    <p><strong>Przykład:</strong> literówka w jednej cyfrze prawie zawsze psuje sumę kontrolną, więc apka wyłapuje przepisane „na oko” numery. Ale uwaga: poprawny NIP to nie to samo co aktywny podatnik VAT — to sprawdzisz w białej liście MF, nie tutaj.</p>
+  </section>
+  <div id="ads-slot" hidden></div>
+  <footer><a href="privacy.html">Prywatność</a> · <a href="kontakt.html">Kontakt</a></footer>
+</main>
+<script src="app.js"></script>
+<script src="ads.js"></script>
+</body>
+</html>
